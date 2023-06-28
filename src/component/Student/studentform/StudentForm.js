@@ -1,12 +1,24 @@
 import React from 'react';
 import './studentForm.scss'
 import Card from '../../card/Card.js'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
-const StudentForm = () => {
+const StudentForm = ({
+  student,
+   studentImage,
+    imagePreview, 
+    description, 
+    setDescription,
+    handleInputChange,
+    handleImageChange,
+    saveStudent
+
+}) => {
   return (
     <div className="add-student">
         <Card cardClass={"card"}>
-        <form onSubmit=''>
+        <form onSubmit={saveStudent}>
         <Card cardClass={"group"}>
             <label>Student Image</label>
             <code className="--color-dark">
@@ -15,21 +27,24 @@ const StudentForm = () => {
             <input
               type="file"
               name="image"
+              onChange={(e) =>handleImageChange(e)}
             />
 
-            {/* {imagePreview != null ? (
+            {imagePreview != null ? (
               <div className="image-preview">
-                <img src={imagePreview} alt="product" />
+                <img src={imagePreview} alt="student" />
               </div>
             ) : (
-              <p>No image set for this poduct.</p>
-            )} */}
+              <p>No image set for this student.</p>
+            )}
             <label>Student Name:</label>
           <input
             type="text"
             placeholder="Student  name"
             name="name"
-           
+            value={student?.name} 
+            // optional chaining
+            onChange={handleInputChange}
           />
 
           <label>Course:</label> 
@@ -38,18 +53,12 @@ const StudentForm = () => {
             type="text"
             placeholder="course"
             name="course"
+            value={student?.course}
+            onChange={handleInputChange}
          
           />
 
-          <label>Paid:</label>
-          <input
-            type="text"
-            placeholder="paid Price"
-            name="price"
-            
-          />
-
-          <label>Gender:</label>
+          {/* <label>Gender:</label>
           <div style={{display:'flex',gap:'1rem', marginBottom:'2rem'}}>
           <label>male:</label>
           <input
@@ -61,12 +70,14 @@ const StudentForm = () => {
             type="radio"
             name="Gender"
           />
-          </div>
+          </div> */}
           <label>Phone number:</label>
           <input
             type="number"
             placeholder=" +234 Phone number"
             name="phone"
+            value={student?.phone}
+            onChange={handleInputChange}
             
           />
           <label>email:</label>
@@ -74,10 +85,14 @@ const StudentForm = () => {
             type="email"
             placeholder="email"
             name="email"
+            value={student?.email}
+            onChange={handleInputChange}
             
           />
-          <label>Course(s):</label>
-          <select>
+          {/* <label>Course(s):</label>
+          <select 
+           value={student?.course}
+           onChange={handleInputChange}>
             <option>--AutoCad--</option>
             <option>--C C# C++ --</option>
             <option>--Python Programming--</option>
@@ -88,34 +103,39 @@ const StudentForm = () => {
             <option>--Web Development--</option>
             <option>--Other--</option>
 
-          </select>
+          </select> */}
           <label>Amount paid:</label>
           <input
             type='number'
             placeholder="paid"
             name="paid"
+            value={student?.paid}
+            onChange={handleInputChange}
             
           />
-          <label>Amount due:</label>
+          {/* <label>Price:</label>
           <input
             type='number'
-            placeholder="due"
-            name="due"
+            placeholder="price"
+            name="text"
+            value={student?.price}
+            onChange={handleInputChange}
             
-          />
+            
+          /> */}
           <label>Start Date </label>
           <input
             type='date'
           />
 
-          {/* <label>Student Description:</label> */}
-          {/* <ReactQuill
+          <label>Student Description:</label> 
+         <ReactQuill
             theme="snow"
             value={description}
             onChange={setDescription}
-            modules={ProductForm.modules}
-            formats={ProductForm.formats}
-          /> */}
+            modules={StudentForm.modules}
+            formats={StudentForm.formats}
+          />
 
           </Card>
           <div className="--my">
@@ -128,6 +148,42 @@ const StudentForm = () => {
         </Card>
     </div>
   )
-}
+};
+StudentForm.modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [{ align: [] }],
+    [{ color: [] }, { background: [] }],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["clean"],
+  ],
+};
+StudentForm.formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "color",
+  "background",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+  "video",
+  "image",
+  "code-block",
+  "align",
+];
 
 export default StudentForm

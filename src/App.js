@@ -16,6 +16,9 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getLoginStatus } from './service/authService';
 import { SET_LOGIN } from './redux/features/authSlice';
+import Students from './pages/students/Students';
+import StudentDetail from './component/Student/studentDetail/StudentDetail';
+import EditStudent from './pages/editStudent/EditStudent';
 
 
 axios.defaults.withCredentials = true
@@ -46,8 +49,7 @@ function App() {
     <Dashboard/>
   </Layout>
 </Sidebar>}/>
-<Route
-          path="/add-student"
+<Route path="/add-student"
           element={
             <Sidebar>
               <Layout>
@@ -62,6 +64,36 @@ function App() {
             <Sidebar>
               <Layout>
                 <Class/>
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/students"
+          element={
+            <Sidebar>
+              <Layout>
+                <Students/>
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/student-detail/:id"
+          element={
+            <Sidebar>
+              <Layout>
+                <StudentDetail />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/edit-student/:id"
+          element={
+            <Sidebar>
+              <Layout>
+                <EditStudent />
               </Layout>
             </Sidebar>
           }

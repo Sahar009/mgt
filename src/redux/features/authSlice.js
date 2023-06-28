@@ -1,11 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const name = JSON.parse(localStorage.getItem('name'))
+// const name = JSON.parse(localStorage.getItem("name"));
+const storedValue = localStorage.getItem("name");
+let name;
+
+try {
+  name = JSON.parse(storedValue);
+} catch (error) {
+  // Handle the error or set a default value for `name`
+  console.error("Error parsing JSON:", error);
+  name = null; // or any other default value
+}
 
 
 const initialState = {
 isLoggedIn: false ,
-name: name ? name : '',
+ name: name ? name : '',
 user:{
   name:'',
   email:'',

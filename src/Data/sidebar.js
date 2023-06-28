@@ -1,4 +1,4 @@
-import { FaTh, FaRegChartBar, FaCommentAlt,FaUserGraduate}  from "react-icons/fa";
+import { FaTh, FaRegChartBar, FaCommentAlt,FaUserGraduate,FaUsers}  from "react-icons/fa";
 import { RiFileChartLine } from "react-icons/ri";
 
 import { MdOutlineGroupAdd} from "react-icons/md";
@@ -24,6 +24,11 @@ const menu = [
     title: "Classes",
     icon: <FaUserGraduate />,
     path: "/classes",
+  },
+  {
+    title: "Students",
+    icon: <FaUsers color="orangered"/>,
+    path: "/Students",
   },
   {
     title: "Attendance",
