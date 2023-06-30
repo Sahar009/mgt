@@ -7,6 +7,7 @@ import Sidebar from './component/sidebar/Sidebar';
 import Layout from './component/layout/Layout';
 import Dashboard from './pages/dashboard/Dashboard';
 import AddStudent from './pages/add-student/AddStudent';
+import Enquiry from './pages/equiry/Enquiry';
 import Class from './pages/class/Class';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -64,6 +65,16 @@ function App() {
             <Sidebar>
               <Layout>
                 <Class/>
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/enquiry"
+          element={
+            <Sidebar>
+              <Layout>
+                <Enquiry/>
               </Layout>
             </Sidebar>
           }

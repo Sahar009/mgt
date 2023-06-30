@@ -1,5 +1,6 @@
 import React from 'react'
-import StudentForm from '../../component/Student/studentform/StudentForm'
+import EnquiryForm from '../../component/enquiry/enquiryform/EnquiryForm'
+import EnquiryList from '../../component/enquiry/enquirylist/EnquiryList'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectIsLoading,createStudent } from '../../redux/features/student/studentSlice'
@@ -64,10 +65,10 @@ const AddStudent = () => {
     
   }
   return (
-    <div>
+    <div className='--grid-15'>
       {/* {isLoading && <Loader/>} */}
-         <h3 className="--mt">Add New Student</h3>
-         <StudentForm
+         
+         <EnquiryForm
          
          student = {student}
          studentImage = {studentImage}
@@ -78,6 +79,7 @@ const AddStudent = () => {
          handleImageChange = {handleImageChange }
          saveStudent = {saveStudent}
          />
+         <EnquiryList/>
     </div>
   )
 }
