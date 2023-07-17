@@ -6,9 +6,9 @@ const BACKEND_URL = process.env.REACT_BACKEND_URL;
 const API_URL = `http://localhost:5000/api/enquiry/`
 
 
-//create student 
+//create enquired  student 
 const createEnquiry = async (formData) =>{
-    const response = await axios.post(API_URL, formData)
+    const response = await axios.post(`http://localhost:5000/api/enquiry`, formData)
     return response.data
 }
 

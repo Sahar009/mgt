@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
-import { getStudents, selectIsLoading, selectStudent, updateStudent } from '../../redux/features/student/studentSlice';
+import { getStudent, getStudents, selectIsLoading, selectStudent, updateStudent } from '../../redux/features/student/studentSlice';
 import { useEffect } from 'react';
 import Loader from '../../component/loader/Loader';
 import StudentForm from '../../component/Student/studentform/StudentForm';
@@ -22,7 +22,7 @@ const EditStudent = () => {
 
     
     useEffect(() =>{
-dispatch(getStudents(id))
+dispatch(getStudent(id))
     },[dispatch, id])
     useEffect(() =>{
       setStudent(StudentEdit)
@@ -45,7 +45,7 @@ dispatch(getStudents(id))
     setImagePreview(URL.createObjectURL(e.target.files[0]))
     };
 
-    //save stu
+    //save student
     const saveStudent = async (e) =>{
       e.preventDefault()
       const formData = new FormData()
@@ -71,7 +71,7 @@ dispatch(getStudents(id))
 
   return (
     <div>
-      {/* {isLoading && <Loader/>}
+      {isLoading && <Loader/>}
          <h3 className="--mt">Edit Student</h3>
          <StudentForm
          
@@ -83,7 +83,7 @@ dispatch(getStudents(id))
          handleInputChange = {handleInputChange}
          handleImageChange = {handleImageChange }
          saveStudent = {saveStudent}
-         /> */}
+         />
     </div>
   )
 }

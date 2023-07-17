@@ -17,10 +17,9 @@ course:[]
 //create new student 
 export  const  createStudent = createAsyncThunk(
     "students/create",
-    async(formData,thunkAPI) => {
+    async (formData,thunkAPI) => {
         try {
-            return await studentService.createStudent
-            (formData)
+            return await studentService.createStudent(formData)
         } catch (error) {
             const message =
         (error.response && error.response.data && error.response.data.message) ||
@@ -221,7 +220,7 @@ const studentSlice = createSlice({
             toast.error(action.payload)
         })
 
-        //get a product casse
+        //get a studnt casse
 
         .addCase(getStudent.pending, (state) =>{
             state.isLoading = true

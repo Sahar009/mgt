@@ -20,40 +20,40 @@ const menu = [
     icon: <MdOutlineGroupAdd/>,
     path: "/add-student",
   },
-  {
-    title: "Classes",
-    icon: <FaUserGraduate />,
-    path: "/classes",
-  },
+  // {
+  //   title: "Classes",
+  //   icon: <FaUserGraduate />,
+  //   path: "/classes",
+  // },
   {
     title: "Students",
     icon: <FaUsers color="orangered"/>,
     path: "/Students",
   },
-  {
-    title: "Attendance",
-    icon: <RiFileChartLine/>,
-    path: "/attendance",
-  },
-  {
-    title: "Account",
-    icon: <FaRegChartBar />,
-    path: "/account",
-  },
+  // {
+  //   title: "Attendance",
+  //   icon: <RiFileChartLine/>,
+  //   path: "/attendance",
+  // },
   // {
   //   title: "Account",
   //   icon: <FaRegChartBar />,
-  //   childrens: [
-  //     {
-  //       title: "Profile",
-  //       path: "/profile",
-  //     },
-  //     {
-  //       title: "Edit Profile",
-  //       path: "/edit-profile",
-  //     },
-  //   ],
+  //   path: "/account",
   // },
+  {
+    title: "Account",
+    icon: <FaRegChartBar />,
+    childrens: [
+      {
+        title: "Profile",
+        path: "/profile",
+      },
+      {
+        title: "Edit Profile",
+        path: "/edit-profile",
+      },
+    ],
+  },
   {
     title: "Report Bug",
     icon: <FaCommentAlt />,

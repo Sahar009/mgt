@@ -12,7 +12,8 @@ const initialState ={
   course:'',
   paid:'',
   email:'',
-  phone:''
+  phone:'',
+
 }
 
 const AddStudent = () => {
@@ -28,6 +29,8 @@ const AddStudent = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+  //   console.log('Name:', name);
+  // console.log('Value:', value);
     setStudent({ ...student, [name]: value });
   };
 
@@ -54,7 +57,7 @@ const AddStudent = () => {
     formData.append('paid', paid)
    
     formData.append('description', description)
-    formData.append('image', studentImage)
+    // formData.append('image', studentImage)
 
     console.log(...formData)
 

@@ -20,6 +20,8 @@ import { SET_LOGIN } from './redux/features/authSlice';
 import Students from './pages/students/Students';
 import StudentDetail from './component/Student/studentDetail/StudentDetail';
 import EditStudent from './pages/editStudent/EditStudent';
+import EditProfile from './pages/profile/EditProfile';
+import Profile from './pages/profile/Profile';
 
 
 axios.defaults.withCredentials = true
@@ -105,6 +107,26 @@ function App() {
             <Sidebar>
               <Layout>
                 <EditStudent />
+              </Layout>
+            </Sidebar>
+          }
+        />
+         <Route
+          path="/profile"
+          element={
+            <Sidebar>
+              <Layout>
+                <Profile/>
+              </Layout>
+            </Sidebar>
+          }
+        />
+         <Route
+          path="/edit-profile"
+          element={
+            <Sidebar>
+              <Layout>
+              <EditProfile />
               </Layout>
             </Sidebar>
           }

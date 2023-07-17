@@ -7,9 +7,9 @@ const API_URL = `http://localhost:5000/api/students/`
 
 
 //create student 
-const createStudent = async (formData) =>{
+ const createStudent = async (formData) =>{
     const response = await axios.post(API_URL, formData)
-    return response.data
+     return response.data;
 }
 //get all students student 
 const getStudents = async () =>{

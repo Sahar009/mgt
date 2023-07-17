@@ -4,32 +4,33 @@ import EnquiryList from '../../component/enquiry/enquirylist/EnquiryList'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectIsLoading,createStudent } from '../../redux/features/student/studentSlice'
+import { createenquiryStudent } from '../../redux/features/enquiry/enquirySlice'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Loader from '../../component/loader/Loader'
 
 const initialState ={
   name: '',
-  course:'',
-  paid:'',
+  // course:'',
+  // paid:'',
   email:'',
-  phone:''
+  // phone:''
 }
 
 const AddStudent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [student, setStudent] = useState(initialState)
+  const [enquiry, setEnquiry] = useState(initialState)
   const [studentImage, setStudentImage] = useState('')
   const [imagePreview, setImagePreview] = useState(null)
   const [description, setDescription] = useState('')
 
   const isLoading = useSelector(selectIsLoading)
-  const {name, course, paid,phone,email} = student
+  const {name, course, paid,phone,email} = enquiry
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setStudent({ ...student, [name]: value });
+    setEnquiry({ ...enquiry, [name]: value });
   };
 
   const handleImageChange = (e) => {
@@ -44,23 +45,24 @@ const AddStudent = () => {
 
   }
 
-  const saveStudent = async (e) =>{
+  const saveEnquiry = async (e) =>{
     e.preventDefault()
     const formData = new FormData()
     formData.append('name', name)
-    formData.append('ID', generateID(course))
-    formData.append('course', course)
+    // formData.append('ID', generateID(course))
+    // formData.append('course', course)
     formData.append('email', email)
-    formData.append('phone', phone)
-    formData.append('paid', paid)
+    // formData.append('phone', phone)
+    // formData.append('paid', paid)
    
-    formData.append('description', description)
-    formData.append('image', studentImage)
+    // formData.append('description', description)
+    // formData.append('image', studentImage)
 
     console.log(...formData)
+    
 
 
-    await dispatch(createStudent(formData))
+    await dispatch(createenquiryStudent(formData))
     // navigate('/dashboard')
     
   }
@@ -70,14 +72,12 @@ const AddStudent = () => {
          
          <EnquiryForm
          
-         student = {student}
-         studentImage = {studentImage}
-         imagePreview = {imagePreview}
+         enquiry = {enquiry}
          description = {description}
          setDescription = {setDescription}
          handleInputChange = {handleInputChange}
          handleImageChange = {handleImageChange }
-         saveStudent = {saveStudent}
+         saveEnquiry = {saveEnquiry}
          />
          <EnquiryList/>
     </div>

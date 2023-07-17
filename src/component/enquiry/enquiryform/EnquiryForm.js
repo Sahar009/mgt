@@ -5,27 +5,27 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const StudentForm = ({
-  student,
+  enquiry,
   
     imagePreview, 
     description, 
     setDescription,
     handleInputChange,
     handleImageChange,
-    saveStudent
+    saveEnquiry
 
 }) => {
   return (
     <div className="add-student">
         <Card cardClass={"card"}>
-        <form onSubmit={saveStudent}>
+        <form onSubmit={saveEnquiry}>
         <Card cardClass={"group"}>
             <label>Student Name:</label>
           <input
             type="text"
             placeholder="Student  name"
             name="name"
-            value={student?.name} 
+            value={enquiry?.name} 
             // optional chaining
             onChange={handleInputChange}
           />
@@ -36,7 +36,7 @@ const StudentForm = ({
             type="text"
             placeholder="course"
             name="course"
-            value={student?.course}
+            value={enquiry?.course}
             onChange={handleInputChange}
          
           />
@@ -59,7 +59,7 @@ const StudentForm = ({
             type="number"
             placeholder=" +234 Phone number"
             name="phone"
-            value={student?.phone}
+            value={enquiry?.phone}
             onChange={handleInputChange}
             
           />
@@ -68,7 +68,7 @@ const StudentForm = ({
             type="email"
             placeholder="email"
             name="email"
-            value={student?.email}
+            value={enquiry?.email}
             onChange={handleInputChange}
             
           />

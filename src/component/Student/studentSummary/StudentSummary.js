@@ -6,7 +6,7 @@ import Infobox from "../../infobox/Infobox";
 import { FaRegistered } from "react-icons/fa";
 import { AiTwotoneHourglass } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { CALC_COURSE, CALC_STORE_VALUE, selectCourse, selectTotalStoreValue } from "../../../redux/features/student/studentSlice";
+import { CALC_COURSE, CALC_STORE_VALUE, CALC_OWING, selectCourse, selectTotalStoreValue,selectOwedAmount } from "../../../redux/features/student/studentSlice";
 import { useEffect } from "react";
 
 
@@ -20,9 +20,11 @@ const StudentSummary = ({students}) => {
   const dispatch = useDispatch()
   const totalStoreValue = useSelector(selectTotalStoreValue)
   const courses = useSelector(selectCourse)
+  const owedamount =useSelector(selectOwedAmount)
   useEffect(() =>{
 dispatch(CALC_STORE_VALUE(students));
 dispatch(CALC_COURSE(students))
+dispatch(CALC_OWING(students))
   },[dispatch,students])
   // Icons
 const earningIcon = <TbCurrencyNaira size={40} color="#fff" />;
@@ -36,7 +38,7 @@ const PendingIcon = <AiTwotoneHourglass size={40} color="#fff" />;
       <h3 className="--mt">Inventory Statistics</h3>
       <div className="info-summary">
         <Infobox icon={earningIcon} text={'Income'} count={`₦${formatNumbers(totalStoreValue)}`}  bgColor="card2"/>
-        <Infobox icon={studentIcon} text={'Overdue' } count={0} bgColor="card3"/>
+        <Infobox icon={studentIcon} text={'Overdue' } count={owedamount} bgColor="card3"/>
         <Infobox icon={PendingIcon} text={'Pending Students' } count={0} bgColor="card1"/>
         <Infobox icon={RegisterIcon} text={'Reg student' } count={students.length} bgColor="card4"/>
         <Infobox icon={RegisterIcon} text={'Courses' } count={courses.length} bgColor="card5"/>

@@ -103,7 +103,7 @@ useEffect(() =>{
                   <th>Courses</th>
                   <th>Price</th>
                   <th>paid</th>
-                  <th>Amt-due</th>
+                  <th>Balance</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -175,7 +175,7 @@ useEffect(() =>{
         )}
       
       </div>
-      {/* <ReactPaginate
+      <ReactPaginate
         breakLabel="..."
         nextLabel="Next >"
         onPageChange={handlePageClick}
@@ -188,7 +188,7 @@ useEffect(() =>{
           previousLinkClassName="page-num"
           nextLinkClassName="page-num"
           activeLinkClassName="activePage"
-      /> */}
+      />
       </div>
       </div>
   )

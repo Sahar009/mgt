@@ -56,10 +56,10 @@ const confirmDelete = (id) => {
 };
 
 // begin pagination
-// const [currentItems, setCurrentItems] = useState([]);
-// const [pageCount, setPageCount] = useState(0);
-// const [itemOffset, setItemOffset] = useState(0);
-// const itemsPerPage = 15;
+const [currentItems, setCurrentItems] = useState([]);
+const [pageCount, setPageCount] = useState(0);
+const [itemOffset, setItemOffset] = useState(0);
+const itemsPerPage = 15;
 
 // useEffect(() => {
 //   const endOffset = itemOffset + itemsPerPage;
@@ -68,10 +68,10 @@ const confirmDelete = (id) => {
 //   setPageCount(Math.ceil(filteredStudents.length / itemsPerPage));
 // }, [itemOffset, itemsPerPage, filteredStudents]);
 
-// const handlePageClick = (event) => {
-//   const newOffset = (event.selected * itemsPerPage) % filteredStudents.length;
-//   setItemOffset(newOffset);
-// };
+const handlePageClick = (event) => {
+  const newOffset = (event.selected * itemsPerPage) //% filteredStudents.length;
+  setItemOffset(newOffset);
+};
 //   // end pagination
 
 // useEffect(() =>{
@@ -155,7 +155,7 @@ const confirmDelete = (id) => {
         )}
       
       </div>
-      {/* <ReactPaginate
+      <ReactPaginate
         breakLabel="..."
         nextLabel="Next >"
         onPageChange={handlePageClick}
@@ -168,7 +168,7 @@ const confirmDelete = (id) => {
           previousLinkClassName="page-num"
           nextLinkClassName="page-num"
           activeLinkClassName="activePage"
-      /> */}
+      />
       </div>
       </div>
   )
