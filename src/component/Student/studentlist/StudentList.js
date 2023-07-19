@@ -7,37 +7,22 @@ import { RiWhatsappFill} from 'react-icons/ri'
 import './studentlist.scss'
 import { SpinnerImg } from '../../loader/Loader'
 import { useDispatch, useSelector } from 'react-redux'
-import { FILTER_STUDENTS, selectFilteredStudents } from '../../../redux/features/student/filterSlice'
 import ReactPaginate from 'react-paginate'
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { deleteStudent, getStudents } from '../../../redux/features/student/studentSlice'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
 const StudentList = ({students, isLoading}) => {
-  const [search, setSearch] = useState('')
-  const filteredStudents = useSelector(selectFilteredStudents)
-  const dispatch = useDispatch()
 
 
 
 
-const shortText = (text, n) =>{
-  if (text.length > n){
-    const shortenedText = text.substring(0,n).concat('...')
-    return shortenedText
-  }
-  return text;
-}
 
-const delStudent = async (id) => {
-  console.log(id);
-  await dispatch(deleteStudent(id));
-  // toast('student deleted ')
-  await dispatch(getStudents());
-};
+
+
+
 const confirmDelete = (id) => {
   confirmAlert({
     title: "Delete Student",
@@ -45,7 +30,7 @@ const confirmDelete = (id) => {
     buttons: [
       {
         label: "Delete",
-        onClick: () => delStudent(id)
+        // onClick: () => delStudent(id)
       },
       {
         label: "Cancel",
@@ -61,22 +46,10 @@ const [pageCount, setPageCount] = useState(0);
 const [itemOffset, setItemOffset] = useState(0);
 const itemsPerPage = 15;
 
-useEffect(() => {
-  const endOffset = itemOffset + itemsPerPage;
 
-  setCurrentItems(filteredStudents.slice(itemOffset, endOffset));
-  setPageCount(Math.ceil(filteredStudents.length / itemsPerPage));
-}, [itemOffset, itemsPerPage, filteredStudents]);
-
-const handlePageClick = (event) => {
-  const newOffset = (event.selected * itemsPerPage) % filteredStudents.length;
-  setItemOffset(newOffset);
-};
   // end pagination
 
-useEffect(() =>{
-  dispatch(FILTER_STUDENTS({students, search}))
-},[students,search, dispatch]);
+
 
   return (
     <div className="student-list">
@@ -87,7 +60,7 @@ useEffect(() =>{
           <h3>Students</h3>
         </span>
         <span>
-          <Search value={search} onChange={(e) => setSearch(e.target.value)}/>
+          <Search />
         </span>
       </div>
       {isLoading && <SpinnerImg/>}
@@ -114,7 +87,7 @@ useEffect(() =>{
                     return(
                       <tr key={_id}>
                       <td>{index+1}</td>
-                      <td>{shortText(name, 12)}</td>
+                      <td>{}</td>
                       <td>{course}</td>
                       <td>
                         {"₦"}
@@ -178,7 +151,7 @@ useEffect(() =>{
       <ReactPaginate
         breakLabel="..."
         nextLabel="Next >"
-        onPageChange={handlePageClick}
+        // onPageChange={handlePageClick}
         pageRangeDisplayed={12}
         pageCount={pageCount}
         previousLabel="< Prev"

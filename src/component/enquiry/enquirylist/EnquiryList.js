@@ -7,11 +7,9 @@ import { RiWhatsappFill} from 'react-icons/ri'
 import './enquirylist.scss'
 import { SpinnerImg } from '../../loader/Loader'
 import { useDispatch, useSelector } from 'react-redux'
-import { FILTER_STUDENTS, selectFilteredStudents } from '../../../redux/features/student/filterSlice'
 import ReactPaginate from 'react-paginate'
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { deleteStudent, getStudents } from '../../../redux/features/student/studentSlice'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
