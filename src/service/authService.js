@@ -73,3 +73,15 @@ export const logoutUser = async () => {
       toast.error(message);
     }
   };
+  export const getUser = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/users/getuser`);
+      return response.data;
+    } catch (error) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
+      toast.error(message);
+    }
+  };
