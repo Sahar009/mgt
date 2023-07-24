@@ -15,8 +15,7 @@ import axios from 'axios';
 import Register from './pages/Auth/Register';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getLoginStatus } from './service/authService';
-import { SET_LOGIN } from './redux/features/authSlice';
+
 import Students from './pages/students/Students';
 import StudentDetail from './component/Student/studentDetail/StudentDetail';
 import EditStudent from './pages/editStudent/EditStudent';
@@ -27,15 +26,7 @@ import Profile from './pages/profile/Profile';
 axios.defaults.withCredentials = true
 
 function App() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    async function loginStatus(){
-      const status = await getLoginStatus()
-      dispatch(SET_LOGIN(status))
-    }
-    loginStatus()
-  
-  }, [dispatch])
+ 
   
   return (<>
 <ToastContainer/>
