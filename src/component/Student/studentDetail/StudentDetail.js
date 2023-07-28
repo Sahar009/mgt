@@ -41,8 +41,8 @@ const StudentDetail = () => {
         {student && (
           <div className="detail">
             <Card cardClass="group">
-                {student ?. image ? (
-                    <img src={student.image.filepath} alt={student.image.filename}/>
+                {student ?.image ? (
+                    <img src={student.image.filePath} alt={student.image.fileName}/>
                 ):(
                     <p>No image set for this student </p>
                 )}

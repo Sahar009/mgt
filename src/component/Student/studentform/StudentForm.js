@@ -18,6 +18,7 @@ const StudentForm = ({
   return (
     <div className="add-student">
         <Card cardClass={"card"}>
+          {/* //onSubmit={saveStudent} */}
         <form onSubmit={saveStudent}>
         <Card cardClass={"group"}>
             <label>Student Image</label>
@@ -113,16 +114,16 @@ const StudentForm = ({
             onChange={handleInputChange}
             
           />
-          {/* <label>Price:</label>
+          <label>Price:</label>
           <input
             type='number'
             placeholder="price"
-            name="text"
+            name="price"
             value={student?.price}
             onChange={handleInputChange}
             
             
-          /> */}
+          />
           <label>Start Date </label>
           <input
             type='date'
@@ -139,7 +140,7 @@ const StudentForm = ({
 
           </Card>
           <div className="--my">
-            <button type="submit" className="--btn --btn-primary">
+            <button type="submit" className="--btn --btn-primary" >
               Save Student
             </button>
           </div>

@@ -73,9 +73,23 @@ export const logoutUser = async () => {
       toast.error(message);
     }
   };
+  //get user
   export const getUser = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/api/users/getuser`);
+      return response.data;
+    } catch (error) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
+      toast.error(message);
+    }
+  };
+//update profile 
+  export const updateUser = async (formData) => {
+    try {
+      const response = await axios.patch(`http://localhost:5000/api/users/updateuser`, formData);
       return response.data;
     } catch (error) {
       const message =

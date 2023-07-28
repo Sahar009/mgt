@@ -1,4 +1,4 @@
-import {useEffect, useRef} from 'react';
+import {useEffect,useState, useRef} from 'react';
 import * as V from 'victory';
 import { VictoryBar,VictoryChart,VictoryAxis } from 'victory';
 import './dashboard.scss'
@@ -14,6 +14,7 @@ import StudentSummary from '../../component/Student/studentSummary/StudentSummar
 
 
 const Dashboard = () => {
+ 
   useRedirectlogout('/login');
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn)
@@ -41,13 +42,41 @@ if(isError){
   //   e.preventDefault();
   //   emailjs.sendForm
   // }
+  const calculateTotalBalance = () => {
+    let totalBalance = 0;
+    for (const student of students) {
+      const { price, paid } = student;
+      totalBalance += price - paid;
+    }
+    return totalBalance;
+  };
+
+  //calc total price
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    for (const student of students) {
+      totalPrice += parseInt(student.price, 10);
+    }
+    return totalPrice;
+  };
+
+   //calc total paid 
+   const calculateTotalPaid = () => {
+    let totalPaid = 0;
+    for (const student of students) {
+      totalPaid += parseInt(student.paid, 10);
+    }
+    return totalPaid;
+  };
+
+
   
   return (
     <div >
       <h1>Dashboard</h1>
       <Card >
         <div className='--flex-between --flex-center'>
-      <StudentSummary students={students}/>
+      <StudentSummary students={students} totalBalance={calculateTotalBalance()} totalPaid ={calculateTotalPrice()} totalprice ={calculateTotalPaid()}/>
       </div>
       </Card>
      {/* <StudentList students={students} isLoading={isLoading}/> */}

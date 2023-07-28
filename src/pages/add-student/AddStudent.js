@@ -5,11 +5,12 @@ import { useSelector } from 'react-redux'
 import { selectIsLoading,createStudent } from '../../redux/features/student/studentSlice'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Loader from '../../component/loader/Loader'
+import Loader from '../../component/loader/Loader';
 
 const initialState ={
   name: '',
   course:'',
+  price:'',
   paid:'',
   email:'',
   phone:'',
@@ -25,7 +26,7 @@ const AddStudent = () => {
   const [description, setDescription] = useState('')
 
   const isLoading = useSelector(selectIsLoading)
-  const {name, course, paid,phone,email} = student
+  const {name, course, paid,phone,email,price} = student
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -55,20 +56,21 @@ const AddStudent = () => {
     formData.append('email', email)
     formData.append('phone', phone)
     formData.append('paid', paid)
+    formData.append('price', price)
    
     formData.append('description', description)
-    // formData.append('image', studentImage)
+    formData.append('image', studentImage)
 
     console.log(...formData)
 
 
     await dispatch(createStudent(formData))
-    // navigate('/dashboard')
+    navigate('/dashboard')
     
   }
   return (
     <div>
-      {/* {isLoading && <Loader/>} */}
+      {isLoading && <Loader/>}
          <h3 className="--mt">Add New Student</h3>
          <StudentForm
          

@@ -10,11 +10,11 @@ const menu = [
     icon: <FaTh />,
     path: "/dashboard",
   },
-  {
-    title: "Enquiry",
-    icon: <AiOutlineForm />,
-    path: "/enquiry",
-  },
+  // {
+  //   title: "Enquiry",
+  //   icon: <AiOutlineForm />,
+  //   path: "/enquiry",
+  // },
   {
     title: "Add Student",
     icon: <MdOutlineGroupAdd/>,

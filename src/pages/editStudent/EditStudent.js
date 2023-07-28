@@ -51,7 +51,7 @@ dispatch(getStudent(id))
       const formData = new FormData()
       formData.append('name', student?.name)
       formData.append('course', student?.course)
-      
+      formData.append('price', student?.price)
       formData.append('paid', student?.paid)
       formData.append('phone', student?.phone)
       formData.append('description', description)

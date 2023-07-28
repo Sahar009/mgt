@@ -223,7 +223,7 @@ const studentSlice = createSlice({
         //get a studnt casse
 
         .addCase(getStudent.pending, (state) =>{
-            state.isLoading = true
+            // state.isLoading = true
         })
         .addCase(getStudent.fulfilled, (state, action) =>{
             state.isLoading = false;

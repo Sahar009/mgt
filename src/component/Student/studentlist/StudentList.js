@@ -55,6 +55,7 @@ const confirmDelete = (id) => {
   });
 };
 
+
 // begin pagination
 const [currentItems, setCurrentItems] = useState([]);
 const [pageCount, setPageCount] = useState(0);
@@ -77,6 +78,26 @@ const handlePageClick = (event) => {
 useEffect(() =>{
   dispatch(FILTER_STUDENTS({students, search}))
 },[students,search, dispatch]);
+
+
+ // Function to calculate the total balance
+const calculateTotalBalance = () => {
+  let totalBalance = 0;
+  for (const student of currentItems) {
+    const { price, paid } = student;
+    totalBalance += price - paid;
+  }
+  return totalBalance;
+};
+// Function to calculate the total price
+const calculateTotalPrice = () => {
+  let totalPrice = 0;
+  for (const student of currentItems) {
+    const { price } = student;
+    totalPrice += parseInt(price, 10);
+  }
+  return totalPrice;
+};
 
   return (
     <div className="student-list">
@@ -101,9 +122,9 @@ useEffect(() =>{
                   <th>s/n</th>
                   <th>Name</th>
                   <th>Courses</th>
-                  <th>Price</th>
+                  <th>Price ₦:{calculateTotalPrice()}</th>
                   <th>paid</th>
-                  <th>Balance</th>
+                  <th>Balance ₦:{calculateTotalBalance()}</th>
                   <th>Actions</th>
                 </tr>
               </thead>

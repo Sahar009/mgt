@@ -25,7 +25,8 @@ const deleteStudent = async (id) =>{
 
 // update student
 const updateStudent = async (id, formData) =>{
-    const response = await axios.patch(`${API_URL}${id}`
+    //`${API_URL}${id}`
+    const response = await axios.patch(API_URL + id
     , formData)
     return response.data
 }

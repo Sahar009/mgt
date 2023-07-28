@@ -1,7 +1,5 @@
 import "./studentsummary.scss";
 import { TbCurrencyNaira} from "react-icons/tb";
-import { BsCart4, BsCartX } from "react-icons/bs";
-import { BiCategory } from "react-icons/bi";
 import Infobox from "../../infobox/Infobox";
 import { FaRegistered } from "react-icons/fa";
 import { AiTwotoneHourglass } from "react-icons/ai";
@@ -15,7 +13,7 @@ export const formatNumbers = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-const StudentSummary = ({students}) => {
+const StudentSummary = ({students,totalBalance, totalPaid,totalprice}) => {
 
   const dispatch = useDispatch()
   const totalStoreValue = useSelector(selectTotalStoreValue)
@@ -37,11 +35,11 @@ const PendingIcon = <AiTwotoneHourglass size={40} color="#fff" />;
     <div className="student-summary">
       <h3 className="--mt">Inventory Statistics</h3>
       <div className="info-summary">
-        <Infobox icon={earningIcon} text={'Income'} count={`₦${formatNumbers(totalStoreValue)}`}  bgColor="card2"/>
-        <Infobox icon={studentIcon} text={'Overdue' } count={owedamount} bgColor="card3"/>
-        <Infobox icon={PendingIcon} text={'Pending Students' } count={0} bgColor="card1"/>
+        <Infobox icon={earningIcon} text={'Total Income'} count={`₦${formatNumbers(totalPaid)}`}  bgColor="card2"/>
+        <Infobox icon={studentIcon} text={'Amount Overdue' } count={`₦${formatNumbers(totalBalance)}`} bgColor="card3"/>
+        <Infobox icon={PendingIcon} text={'amount paid' } count={`₦${formatNumbers(totalprice)}`} bgColor="card1"/>
         <Infobox icon={RegisterIcon} text={'Reg student' } count={students.length} bgColor="card4"/>
-        <Infobox icon={RegisterIcon} text={'Courses' } count={courses.length} bgColor="card5"/>
+        <Infobox icon={RegisterIcon} text={'Courses reg' } count={courses.length} bgColor="card5"/>
         </div>
         </div>
   )

@@ -22,6 +22,7 @@ import StudentDetail from './component/Student/studentDetail/StudentDetail';
 import EditStudent from './pages/editStudent/EditStudent';
 import EditProfile from './pages/profile/EditProfile';
 import Profile from './pages/profile/Profile';
+import Contact from './pages/contact/Contact';
 
 
 axios.defaults.withCredentials = true
@@ -127,6 +128,16 @@ function App() {
             <Sidebar>
               <Layout>
               <EditProfile />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/contact-us"
+          element={
+            <Sidebar>
+              <Layout>
+              <Contact />
               </Layout>
             </Sidebar>
           }
