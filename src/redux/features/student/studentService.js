@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const BACKEND_URL = process.env.REACT_BACKEND_URL;
 // const API_URL = `${BACKEND_URL}/api/students`
-const API_URL = `https://parachbackend.onrender.com/api/students/`
+const API_URL = `https://parachbackend.onrender.com/api/students`
 
 
 //create student 

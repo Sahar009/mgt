@@ -3,7 +3,7 @@ import axios from 'axios'
 import { toast } from "react-toastify";
 
 // const BACKEND_URL = process.env.REACT_BACKEND_URL;
-const BACKEND_URL = 'https://parachbackend.onrender.com/'
+const BACKEND_URL = 'https://parachbackend.onrender.com'
 
 export const validateEmail = (email) => {
     return email.match( /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
