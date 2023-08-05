@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import './home.scss'
 import heroImg from "../../asset/header2.jpg";
 import { ShowOnLogin, ShowOnLogout } from '../../component/protect/Hiddenlinks';
+import Card from '../../component/card/Card';
 
 const Home = () => {
   return (
@@ -41,19 +42,20 @@ const Home = () => {
           <div className="hero-text">
             <h2>Teachers  Dashboard</h2>
             <p>
-              Inventory system to control and manage Day to day schedule and office duties.
+              Student Inventory system to control and manage Day to day schedule and office duties.
             </p>
-            {/* <div className="hero-buttons">
+            <div className="hero-buttons">
               <button className="--btn --btn-secondary">
                 <Link to="/dashboard">Free Trial 3 Month</Link>
               </button>
-            </div> */}
+            </div>
           
           </div>
-  
+        <Card>
           <div className="hero-image">
             <img src={heroImg} alt="Inventory" />
           </div>
+          </Card>
         </section>
       </div>
     );

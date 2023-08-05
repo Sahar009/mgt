@@ -2,8 +2,8 @@ import { MdEmail } from "react-icons/md";
 import axios from 'axios'
 import { toast } from "react-toastify";
 
-const BACKEND_URL = process.env.REACT_BACKEND_URL;
-
+// const BACKEND_URL = process.env.REACT_BACKEND_URL;
+const BACKEND_URL = 'http://localhost:5000'
 
 export const validateEmail = (email) => {
     return email.match( /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
@@ -11,7 +11,7 @@ export const validateEmail = (email) => {
 
     export const RegisterUser = async (userData) => {
         try {
-            const response = await axios.post(`http://localhost:5000/api/users/register`,userData, {withCredentials: true})
+            const response = await axios.post(`${BACKEND_URL}/api/users/register`,userData, {withCredentials: true})
             if (response.statusText === "OK"){
                 toast.success('Registered successfully')
             }
@@ -30,7 +30,7 @@ export const validateEmail = (email) => {
         //login user
         export const LoginUser = async (userData) => {
             try {
-                const response = await axios.post(`http://localhost:5000/api/users/login`,userData)
+                const response = await axios.post(`${BACKEND_URL}/api/users/login`,userData)
                 if (response.statusText === "OK"){
                     toast.success('logged in successfully')
                 }
@@ -49,7 +49,7 @@ export const validateEmail = (email) => {
             // Logout User
 export const logoutUser = async () => {
     try {
-      await axios.get(`http://localhost:5000/api/users/logout`);
+      await axios.get(`${BACKEND_URL}/api/users/logout`);
     } catch (error) {
       const message =
         (error.response && error.response.data && error.response.data.message) ||
@@ -63,7 +63,7 @@ export const logoutUser = async () => {
   //get login status
   export const getLoginStatus = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/loggedin`);
+      const response = await axios.get(`${BACKEND_URL}/api/users/loggedin`);
       return response.data;
     } catch (error) {
       const message =
@@ -76,7 +76,7 @@ export const logoutUser = async () => {
   //get user
   export const getUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/getuser`);
+      const response = await axios.get(`${BACKEND_URL}/api/users/getuser`);
       return response.data;
     } catch (error) {
       const message =
@@ -89,7 +89,7 @@ export const logoutUser = async () => {
 //update profile 
   export const updateUser = async (formData) => {
     try {
-      const response = await axios.patch(`http://localhost:5000/api/users/updateuser`, formData);
+      const response = await axios.patch(`${BACKEND_URL}/api/users/updateuser`, formData);
       return response.data;
     } catch (error) {
       const message =

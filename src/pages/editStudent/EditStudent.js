@@ -5,7 +5,7 @@ import { getStudent, getStudents, selectIsLoading, selectStudent, updateStudent 
 import { useEffect } from 'react';
 import Loader from '../../component/loader/Loader';
 import StudentForm from '../../component/Student/studentform/StudentForm';
-
+import courseOptions from './courseOptions';
 const EditStudent = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
@@ -13,7 +13,8 @@ const EditStudent = () => {
     const isLoading = useSelector(selectIsLoading)
     const StudentEdit = useSelector(selectStudent)
 
-  const [student, setStudent] = useState(StudentEdit)
+    const [student, setStudent] = useState(StudentEdit || {});
+
   const [studentImage, setStudentImage] = useState('')
   const [imagePreview, setImagePreview] = useState(null)
   const [description, setDescription] = useState('')
@@ -21,19 +22,40 @@ const EditStudent = () => {
 
 
     
-    useEffect(() =>{
-dispatch(getStudent(id))
-    },[dispatch, id])
-    useEffect(() =>{
-      setStudent(StudentEdit)
-      setImagePreview(
-        StudentEdit && StudentEdit.image ? `${StudentEdit.image.filePath}` : null
-      )
-      setDescription(
-        StudentEdit && StudentEdit.description ? StudentEdit.description : ''
-      )
-          },[StudentEdit])
+  useEffect(() => {
+    dispatch(getStudent(id));
+  }, [dispatch, id]);
 
+  useEffect(() => {
+    setStudent(StudentEdit || {});
+    setImagePreview(
+      StudentEdit && StudentEdit.image ? `${StudentEdit.image.filePath}` : null
+    );
+    setDescription(
+      StudentEdit && StudentEdit.description ? StudentEdit.description : ''
+    );
+  }, [StudentEdit]);
+
+
+
+
+
+
+
+
+useEffect(() => {
+  dispatch(getStudent(id));
+}, [dispatch, id]);
+
+useEffect(() => {
+  setStudent(StudentEdit || {});
+  setImagePreview(
+    StudentEdit && StudentEdit.image ? `${StudentEdit.image.filePath}` : null
+  );
+  setDescription(
+    StudentEdit && StudentEdit.description ? StudentEdit.description : ''
+  );
+}, [StudentEdit]);
 
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -83,6 +105,10 @@ dispatch(getStudent(id))
          handleInputChange = {handleInputChange}
          handleImageChange = {handleImageChange }
          saveStudent = {saveStudent}
+        
+         courseOptions={courseOptions} // Pass the courseOptions as a prop
+         selectedCourse={student.course} // Pass the selected course as a prop
+     
          />
     </div>
   )

@@ -1,6 +1,6 @@
 import {useEffect,useState, useRef} from 'react';
 import * as V from 'victory';
-import { VictoryBar,VictoryChart,VictoryAxis } from 'victory';
+import { VictoryLabel, VictoryPie } from 'victory';
 import './dashboard.scss'
 import Card from '../../component/card/Card';
 import useRedirectlogout from '../../component/customhook/useRedirectlogout';
@@ -10,6 +10,8 @@ import { getStudents, selectIsLoading } from '../../redux/features/student/stude
 import StudentList from '../../component/Student/studentlist/StudentList';
 import { selectStudent } from '../../redux/features/student/studentSlice';
 import StudentSummary from '../../component/Student/studentSummary/StudentSummary';
+import PieChart from './Piechart';
+
 
 
 
@@ -19,7 +21,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn)
   const studentState = useSelector((state) => state.student);
-  
+  const [chartId, setChartId] = useState(0);
   const { students, isLoading, isError, message } = useSelector(
     (state) => state.student
   );
@@ -36,6 +38,7 @@ if(isError){
 }
 
   },[isLoggedIn,dispatch,message,isError,students])
+
 
   // const send = (e) =>{
     // hbcode 
@@ -68,7 +71,20 @@ if(isError){
     }
     return totalPaid;
   };
+  const calculateStudentCountByCourse = () => {
+    const studentCountByCourse = {};
+    for (const student of students) {
+      const { course } = student;
+      if (studentCountByCourse[course]) {
+        studentCountByCourse[course] += 1;
+      } else {
+        studentCountByCourse[course] = 1;
+      }
+    }
+    return studentCountByCourse;
+  };
 
+  const studentCountByCourse = calculateStudentCountByCourse();
 
   
   return (
@@ -77,10 +93,52 @@ if(isError){
       <Card >
         <div className='--flex-between --flex-center'>
       <StudentSummary students={students} totalBalance={calculateTotalBalance()} totalPaid ={calculateTotalPrice()} totalprice ={calculateTotalPaid()}/>
+  
       </div>
+      
       </Card>
+      <div className='--flex-start '>
+      <div className='--flex-between --flex-center'>
+      <Card>
+        <PieChart
+        chartId={chartId}
+        totalPaid={calculateTotalPaid()}
+        totalPrice={calculateTotalPrice()}
+      />
+      </Card>
+      </div>
+      
+      <Card>
+      <div className='--flex-between --flex-center'>
+        
+        <VictoryPie
+        width={500} 
+        height={500} 
+          data={Object.keys(studentCountByCourse).map((course) => ({
+            x: course,
+            y: studentCountByCourse[course],
+            label: `${course}: ${studentCountByCourse[course]}`, // Display label with course and count
+          }))}
+          labels={({ datum }) => datum.label} // Display labels using the 'label' property of the data points
+          innerRadius={40}
+    padAngle={3}
+    padding={100}
+        />
+        <VictoryLabel 
+          textAnchor="middle"
+          verticalAnchor="middle"
+          
+          animate={{
+            duration: 1000
+          }}
+          text={`Total: ${students.length}`}
+          style={{ fontSize: 10 }}
+        />
+        </div>
+      </Card>
+      
      {/* <StudentList students={students} isLoading={isLoading}/> */}
-   
+     </div>
     </div>
   )
 }

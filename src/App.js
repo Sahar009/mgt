@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 import { getLoginStatus } from './service/authService';
 import { SET_LOGIN } from './redux/features/authSlice';
 import Students from './pages/students/Students';
+import Overdue from './pages/students/Overdue';
 import StudentDetail from './component/Student/studentDetail/StudentDetail';
 import EditStudent from './pages/editStudent/EditStudent';
 import EditProfile from './pages/profile/EditProfile';
@@ -88,6 +89,16 @@ function App() {
             <Sidebar>
               <Layout>
                 <Students/>
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/overdue"
+          element={
+            <Sidebar>
+              <Layout>
+                <Overdue/>
               </Layout>
             </Sidebar>
           }
