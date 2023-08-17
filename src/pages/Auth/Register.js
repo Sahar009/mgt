@@ -14,7 +14,7 @@ const Register = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const initialState = {
-      name:"",
+     
       email:"",
       password:"",
       password2:"",
@@ -30,7 +30,7 @@ const Register = () => {
     const register = async(e) =>{
       e.preventDefault();
 
-      if (!name || !email || !password) {
+      if ( !email || !password) {
         return toast.error("All fields are required");
       }
       if (password.length < 6) {
@@ -43,7 +43,7 @@ const Register = () => {
         return toast.error("Passwords do not match");
       }
        const userData = {
-         name:name,
+        
          email :email,
          password:password
        }
@@ -51,8 +51,6 @@ const Register = () => {
        try {
          const data = await RegisterUser(userData)
          console.log(data)
-        //  await dispatch(SET_LOGIN(true))
-        //  await dispatch(SET_NAME(data.name))
          navigate('/dashboard')
          setIsLoading(false)
        } catch (error) {
@@ -67,20 +65,12 @@ const Register = () => {
     <Card>
       <div className={styles.form}>
         <div className="--flex-center">
-          <TiUserAddOutline size={35} color="#3060ff" />
+          <TiUserAddOutline size={35} color="red" />
         </div>
         <h2>Register</h2>
 
         <form onSubmit={register}>
-          <input
-            type="text"
-            placeholder="Name"
-            required
-            name="name"
-            value={name}
-            onChange = {handleInputChange}
-           
-          />
+        
           <input
             type="email"
             placeholder="Email"

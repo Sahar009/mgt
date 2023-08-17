@@ -1,8 +1,9 @@
 import React from 'react';
-import { RiProductHuntLine } from "react-icons/ri";
+import { TbBrandYoutubeKids } from "react-icons/tb";
+
 import { Link } from "react-router-dom";
 import './home.scss'
-import heroImg from "../../asset/header2.jpg";
+import heroImg from "../../asset/appclick2.jpeg";
 import { ShowOnLogin, ShowOnLogout } from '../../component/protect/Hiddenlinks';
 import Card from '../../component/card/Card';
 
@@ -11,7 +12,7 @@ const Home = () => {
       <div className="home">
         <nav className="container --flex-between ">
           <div className="logo">
-            <RiProductHuntLine size={50} />
+          <h2> <TbBrandYoutubeKids size={40} color='orangered'/>creator</h2>
           </div>
   
           <ul className="home-links">
@@ -22,7 +23,7 @@ const Home = () => {
               </ShowOnLogout>
               <ShowOnLogout>
               <li>
-                <button className="--btn --btn-primary">
+                <button className="--btn --btn-secondary">
                   <Link to="/login">Login</Link>
                 </button>
               </li>
@@ -30,7 +31,7 @@ const Home = () => {
            
            <ShowOnLogin>
               <li>
-                <button className="--btn --btn-primary">
+                <button className="--btn --btn-secondary">
                   <Link to="/dashboard">Dashboard</Link>
                 </button>
               </li>
@@ -40,13 +41,13 @@ const Home = () => {
         {/* HERO SECTION */}
         <section className="container hero">
           <div className="hero-text">
-            <h2>Teachers  Dashboard</h2>
+            <h2>Youtube video Editor</h2>
             <p>
-              Student Inventory system to control and manage Day to day schedule and office duties.
+             Edit and download youtube videos 
             </p>
             <div className="hero-buttons">
               <button className="--btn --btn-secondary">
-                <Link to="/dashboard">Free Trial 3 Month</Link>
+                <Link to="/login">Login for Free Trial </Link>
               </button>
             </div>
           

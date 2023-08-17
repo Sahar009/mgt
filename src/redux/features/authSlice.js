@@ -19,9 +19,6 @@ isLoggedIn: false ,
 user:{
   name:'',
   email:'',
-  phone:'',
- bio:'',
-  photo:'',
 },
 userID :""
 }
@@ -41,9 +38,6 @@ const AuthSlice = createSlice({
     const profile = action.payload
       state.user.name = profile.name
       state.user.email = profile.email
-      state.user.photo = profile.phone
-      state.user.bio = profile.bio
-      state.user.photo = profile.photo
     },
 
 

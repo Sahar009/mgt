@@ -3,25 +3,26 @@ import './sidebar.scss';
 import menu from '../../Data/sidebar';
 import Sidebartem from './Sidebartem'
 import { RiProductHuntLine } from 'react-icons/ri';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {AiTwotoneLeftCircle,AiTwotoneRightCircle} from 'react-icons/ai'
+import { TbBrandYoutubeKids } from 'react-icons/tb';
 
-const Sidebar = ({children}) => {
+const Sidebar = ({children,handleSaveAudio}) => {
   const [isOpen, setIsOpen] = useState(true)
 
   const toggle = ()=> setIsOpen(!isOpen)
 
   const navigate = useNavigate();
 
-  const goHome = () => {
-    navigate("/");
-  };
+  
   return (
     <div className='layout'>
-        <div className='sidebar' style={{width: isOpen ? '230px' : '140px'}}>
+        <div className='sidebar' style={{width: isOpen ? '230px' : '130px'}}>
 <div className='top_section'>
     <div className='logo' style={{display: isOpen ? 'block' : 'none'}}>
-    <RiProductHuntLine size={50} style={{cursor:"pointer"}} onClick={goHome}/>
+    <div className="logo">
+         <Link to={'/dashboard'}> <TbBrandYoutubeKids size={40} color='orangered' /></Link>
+          </div>
     {/* style={{marginLeft:isOpen ? '100px': '1px'}} */}
     </div>
     <div className='bars'>
@@ -34,7 +35,7 @@ const Sidebar = ({children}) => {
 </div>
 {menu.map((item, index) =>{
     return(
-      <Sidebartem key={index} item={item} isOpen={isOpen}/>
+      <Sidebartem key={index} item={item} isOpen={isOpen} handleSaveAudio={handleSaveAudio}/>
     )
 })}
         </div>

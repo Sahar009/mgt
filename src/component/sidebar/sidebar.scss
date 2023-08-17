@@ -13,7 +13,7 @@
     width: 230px;
     height: 100vh;
     flex-shrink: 0;
-    background-color: var(--color-white);
+    background-color: rgb(99, 99, 99);
     overflow: auto;
     color: var(-color-dark);
     transition: all 0.5s;
@@ -25,11 +25,14 @@
     padding: 10px 15px;
     border-bottom: 2px solid #ccc;
     transition: all 0.5s;
-    background-color: var(--dark-blue);
+    background-color: black;
     height: 70px;
   }
   .logo {
     font-size: 30px;
+    color: var(--color-white);
+  }
+  h3{
     color: var(--color-white);
   }
   .bars {
@@ -49,6 +52,7 @@
   .sidebar-item {
     padding: 0.75em 1em;
     display: block;
+    width: 100%;
     // border-radius: 5px;
     // border-bottom: 2px solid #ccc;
     background-color: rgba(255, 255, 255, 0.1);
@@ -65,12 +69,13 @@
   
   .sidebar-title {
     display: flex;
-    font-size: 1.2em;
+    font-size: 0.8em;
     justify-content: space-between;
     align-items: center;
   }
   
   .sidebar-title span {
+    
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -83,7 +88,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1.5em;
+    width: 100%;
     font-size: 25px;
   }
   
@@ -109,6 +114,8 @@
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-top: 5px;
+    display: flex;
+    width: 100%;
   }
   
   .s-child:hover {

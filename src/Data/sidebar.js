@@ -1,58 +1,27 @@
-import { FaTh, FaRegChartBar, FaCommentAlt,FaUserGraduate,FaUsers}  from "react-icons/fa";
-import { RiFileChartLine } from "react-icons/ri";
+import {  FaTools, FaCommentAlt,FaCropAlt}  from "react-icons/fa";
 
-import { MdOutlineGroupAdd} from "react-icons/md";
-import { AiOutlineForm} from "react-icons/ai";
-
+import {FcAddImage} from "react-icons/fc";
+import { MdOutlineAudioFile } from "react-icons/md";
 const menu = [
   {
-    title: "Dashboard",
-    icon: <FaTh />,
-    path: "/dashboard",
-  },
-  // {
-  //   title: "Enquiry",
-  //   icon: <AiOutlineForm />,
-  //   path: "/enquiry",
-  // },
-  {
-    title: "Add Student",
-    icon: <MdOutlineGroupAdd/>,
-    path: "/add-student",
-  },
-  // {
-  //   title: "Classes",
-  //   icon: <FaUserGraduate />,
-  //   path: "/classes",
-  // },
-  {
-    title: "Students",
-    icon: <FaUsers color="orangered"/>,
-    path: "/Students",
-  },
-  // {
-  //   title: "Attendance",
-  //   icon: <RiFileChartLine/>,
-  //   path: "/attendance",
-  // },
-  // {
-  //   title: "Account",
-  //   icon: <FaRegChartBar />,
-  //   path: "/account",
-  // },
-  {
-    title: "Account",
-    icon: <FaRegChartBar />,
+    title: "Tools",
+    icon: <FaTools />,
     childrens: [
       {
-        title: "Profile",
-        path: "/profile",
+        title: "Add image",
+        icon: <FcAddImage />,
       },
       {
-        title: "Edit Profile",
-        path: "/edit-profile",
+        title: "crop video",
+        icon: <FaCropAlt/>,
+      },
+      {
+        title: 'save video',
+        icon: <MdOutlineAudioFile />,
+        
       },
     ],
+
   },
   {
     title: "Report Bug",

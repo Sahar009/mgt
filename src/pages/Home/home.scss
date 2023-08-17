@@ -1,14 +1,18 @@
 .home {
-    background-color: #030b6b;
+    background-color: #000000;
     min-height: 100vh;
   
     & nav {
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
-      color: #fff;
+      color: orangered;
       & > .logo {
-        color: #fff;
+        color: orangered;
       }
+    }
+    h2{
+      font-family: 'Acme', sans-serif;
+      color: white;
     }
   }
   .home-links {
@@ -33,14 +37,14 @@
   .hero-text {
     width: 50%;
     & > * {
-      color: #fff;
+      color: #ffffff;
       margin-bottom: 2rem;
     }
     & > h2 span {
       display: block;
     }
     & .hero-buttons a {
-      color: #fff;
+      color:orangered;
     }
   }
   .hero-image {

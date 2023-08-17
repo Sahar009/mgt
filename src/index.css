@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 :root {
   --nav-width: 68px;
   --header-height: 45px;
@@ -21,6 +21,7 @@
   --color-primary: #007bff;
   --color-success: #28a745;
   --color-danger: orangered;
+  --color-red: red;
 }
 
 * {
@@ -320,11 +321,11 @@ p {
 
 .--btn-primary {
   color: #fff;
-  background: #007bff;
+  background: red;
 }
 .--btn-secondary {
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid orangered;
   background: transparent;
 }
 .--btn-danger {

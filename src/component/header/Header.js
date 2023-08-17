@@ -19,7 +19,7 @@ const name = useSelector(selectName)
     <div className="--pad header">
     <div className="--flex-between">
       <h3>
-        <span className="--fw-thin">Welcome, </span>
+        <span className="--text-p">Welcome, </span>
         <span className="--color-danger">{name}</span>
       </h3>
       <button className="--btn --btn-danger" onClick={logout}>

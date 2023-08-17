@@ -27,7 +27,7 @@ try {
     }
   return (
     <div className="contact">
-    <h3 className="--mt">Contact Us</h3>
+    <h3 >Contact Us</h3>
     <div className="section">
       <form onSubmit={sendEmail}>
         <Card cardClass="card">
