@@ -13,7 +13,7 @@ export const validateEmail = (email) => {
         try {
             const response = await axios.post(`${BACKEND_URL}/api/users/register`,userData, {withCredentials: true})
             if (response.statusText === "OK"){
-                toast.success('Registered successfully')
+                toast.success('Registered successfullyvvvvv')
             }
             return response.data
         } catch (error) {
